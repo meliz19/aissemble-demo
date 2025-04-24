@@ -1,0 +1,6 @@
+dependencies:
+- name: aissemble-metadata-chart
+  repository: oci://ghcr.io/boozallen
+  version: 1.12.1
+digest: sha256:13710fe8f62b5888413184bcdd780b0e406fb5c9b8932f79d1e34de2816839b9
+generated: "2025-04-24T10:21:27.508523-05:00"

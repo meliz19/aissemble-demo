@@ -1,0 +1,17 @@
+{
+  "name":"PySparkDataDeliveryExample",
+  "package":"com.test.aissemble",
+  "type":{
+    "name":"data-flow",
+    "implementation":"data-delivery-pyspark"
+  },
+  "steps":[
+    {
+      "name":"IngestData",
+      "type":"synchronous",
+      "dataProfiling":{
+        "enabled":false
+      }
+    }
+  ]
+}

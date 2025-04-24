@@ -1,0 +1,17 @@
+{
+  "name":"SparkDataDeliveryExample",
+  "package":"com.test.aissemble",
+  "type":{
+    "name":"data-flow",
+    "implementation":"data-delivery-spark"
+  },
+  "steps":[
+    {
+      "name":"IngestData",
+      "type":"synchronous",
+      "dataProfiling":{
+        "enabled":false
+      }
+    }
+  ]
+}
