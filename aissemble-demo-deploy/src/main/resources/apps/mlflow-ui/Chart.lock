@@ -1,0 +1,6 @@
+dependencies:
+- name: aissemble-mlflow-chart
+  repository: oci://ghcr.io/boozallen
+  version: 1.12.1
+digest: sha256:2a615f5025fee4f9555172ac48373340ca473afbc56c860e5e7293b255b26f8e
+generated: "2025-04-24T13:51:30.259079-05:00"

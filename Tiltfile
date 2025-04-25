@@ -73,3 +73,40 @@ yaml = helm(
        'aissemble-demo-deploy/src/main/resources/apps/pipeline-invocation-service/values-dev.yaml']
 )
 k8s_yaml(yaml)
+
+yaml = helm(
+   'aissemble-demo-deploy/src/main/resources/apps/aissemble-machine-learning-inference',
+   name='aissemble-machine-learning-inference',
+   values=['aissemble-demo-deploy/src/main/resources/apps/aissemble-machine-learning-inference/values.yaml',
+       'aissemble-demo-deploy/src/main/resources/apps/aissemble-machine-learning-inference/values-dev.yaml']
+)
+k8s_yaml(yaml)
+
+yaml = helm(
+   'aissemble-demo-deploy/src/main/resources/apps/shared-infrastructure',
+   name='shared-infrastructure',
+   values=['aissemble-demo-deploy/src/main/resources/apps/shared-infrastructure/values.yaml',
+       'aissemble-demo-deploy/src/main/resources/apps/shared-infrastructure/values-dev.yaml']
+)
+k8s_yaml(yaml)
+yaml = helm(
+   'aissemble-demo-deploy/src/main/resources/apps/model-training-api',
+   name='model-training-api',
+   values=['aissemble-demo-deploy/src/main/resources/apps/model-training-api/values.yaml',
+       'aissemble-demo-deploy/src/main/resources/apps/model-training-api/values-dev.yaml']
+)
+k8s_yaml(yaml)
+yaml = helm(
+   'aissemble-demo-deploy/src/main/resources/apps/mlflow-ui',
+   name='mlflow-ui',
+   values=['aissemble-demo-deploy/src/main/resources/apps/mlflow-ui/values.yaml',
+       'aissemble-demo-deploy/src/main/resources/apps/mlflow-ui/values-dev.yaml']
+)
+k8s_yaml(yaml)
+yaml = helm(
+   'aissemble-demo-deploy/src/main/resources/apps/postgres',
+   name='postgres',
+   values=['aissemble-demo-deploy/src/main/resources/apps/postgres/values.yaml',
+       'aissemble-demo-deploy/src/main/resources/apps/postgres/values-dev.yaml']
+)
+k8s_yaml(yaml)

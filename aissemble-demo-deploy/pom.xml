@@ -168,6 +168,86 @@
                             </propertyVariables>
                         </configuration>
                     </execution>
+                    <execution>
+                        <id>model-training-api</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate-sources</goal>
+                        </goals>
+                        <configuration>
+                            <basePackage>com.test.aissemble</basePackage>
+                            <profile>training-deploy</profile>
+                            <!-- The property variables below are passed to the Generation Context and utilized
+                                 to customize the deployment artifacts. -->
+                            <propertyVariables>
+                                <appName>model-training-api</appName>
+                            </propertyVariables>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>shared-infrastructure</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate-sources</goal>
+                        </goals>
+                        <configuration>
+                            <basePackage>com.test.aissemble</basePackage>
+                            <profile>aissemble-shared-infrastructure-deploy</profile>
+                            <!-- The property variables below are passed to the Generation Context and utilized
+                                 to customize the deployment artifacts. -->
+                            <propertyVariables>
+                                <appName>shared-infrastructure</appName>
+                            </propertyVariables>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>aissemble-machine-learning-inference</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate-sources</goal>
+                        </goals>
+                        <configuration>
+                            <basePackage>com.test.aissemble</basePackage>
+                            <profile>inference-deploy</profile>
+                            <!-- The property variables below are passed to the Generation Context and utilized
+                                 to customize the deployment artifacts. -->
+                            <propertyVariables>
+                                <appName>aissemble-machine-learning-inference</appName>
+                            </propertyVariables>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>mlflow-ui</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate-sources</goal>
+                        </goals>
+                        <configuration>
+                            <basePackage>com.test.aissemble</basePackage>
+                            <profile>mlflow-deploy-v2</profile>
+                            <!-- The property variables below are passed to the Generation Context and utilized
+                                 to customize the deployment artifacts. -->
+                            <propertyVariables>
+                                <appName>mlflow-ui</appName>
+                            </propertyVariables>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>postgres</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate-sources</goal>
+                        </goals>
+                        <configuration>
+                            <basePackage>com.test.aissemble</basePackage>
+                            <profile>postgres-deploy</profile>
+                            <!-- The property variables below are passed to the Generation Context and utilized
+                                 to customize the deployment artifacts. -->
+                            <propertyVariables>
+                                <appName>postgres</appName>
+                            </propertyVariables>
+                        </configuration>
+                    </execution>
                 </executions>
                 <dependencies>
                     <dependency>

@@ -9,3 +9,7 @@ aissemble-localstack-chart:
     - name: spark-infrastructure
       keys:
       - warehouse/
+    - name: mlflow-models
+      keys:
+      - mlflow-storage
+

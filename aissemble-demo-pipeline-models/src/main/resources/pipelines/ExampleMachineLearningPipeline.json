@@ -1,0 +1,22 @@
+{
+  "name": "ExampleMachineLearningPipeline",
+  "package": "com.test.aissemble",
+  "type": {
+    "name": "machine-learning",
+    "implementation": "machine-learning-mlflow"
+  },
+  "steps": [
+    {
+      "name": "AissembleMachineLearningTraining",
+      "type": "training",
+      "inbound": {
+        "type": "messaging",
+        "channelName": "train"
+      }
+    },
+    {
+      "name": "AissembleMachineLearningInference",
+      "type": "inference"
+    }
+  ]
+}

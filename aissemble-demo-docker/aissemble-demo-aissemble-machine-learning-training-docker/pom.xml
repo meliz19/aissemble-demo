@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.test.aissemble</groupId>
+        <artifactId>aissemble-demo-docker</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>aissemble-demo-aissemble-machine-learning-training-docker</artifactId>
+
+    <packaging>docker-build</packaging>
+
+    <name>aiSSEMBLE Demo::Docker::Training</name>
+    <description>Build for a Training Docker container to run a model training job</description>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.technologybrewery.fermenter</groupId>
+                <artifactId>fermenter-mda</artifactId>
+                <configuration>
+                    <basePackage>com.test.aissemble</basePackage>
+                    <profile>aissemble-training-docker</profile>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-docker-resources</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${project.basedir}/src/main/resources/docker</directory>
+                                    <filtering>false</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy-aissemble-machine-learning-training</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/aissemble-machine-learning-training</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${project.parent.parent.basedir}/aissemble-demo-pipelines/example-machine-learning-pipeline/aissemble-machine-learning-training</directory>
+                                    <filtering>false</filtering>
+                                    <includes>
+                                        <include>dist/requirements.txt</include>
+                                        <include>dist/*-${version.habushu.dist.artifact}-*.whl</include>
+                                    </includes>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy-config-resources</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/krausening/base</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${project.parent.parent.basedir}/aissemble-demo-pipelines/example-machine-learning-pipeline/aissemble-machine-learning-training/src/aissemble_machine_learning_training/resources/krausening/base</directory>
+                                    <filtering>false</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>${group.fabric8.plugin}</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+    <dependencies>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>aissemble-machine-learning-training</artifactId>
+            <version>${project.version}</version>
+            <type>habushu</type>
+        </dependency>
+    </dependencies>
+</project>

@@ -19,6 +19,7 @@
     <modules>
         <module>py-spark-data-delivery-example</module>
         <module>spark-data-delivery-example</module>
+        <module>example-machine-learning-pipeline</module>
     </modules>
 
     <build>

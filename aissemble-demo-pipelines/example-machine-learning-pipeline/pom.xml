@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.test.aissemble</groupId>
+        <artifactId>aissemble-demo-pipelines</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>example-machine-learning-pipeline</artifactId>
+    <packaging>pom</packaging>
+
+    <name>aiSSEMBLE Demo::Pipelines::Example Machine Learning Pipeline</name>
+    <description>${pipeline.description}</description>
+
+    <modules>
+        <module>aissemble-machine-learning-training</module>
+        <module>aissemble-machine-learning-inference</module>
+        <!-- TODO: add your step-specific modules here -->
+    </modules>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.technologybrewery.fermenter</groupId>
+                <artifactId>fermenter-mda</artifactId>
+                <configuration>
+                    <basePackage>com.test.aissemble</basePackage>
+                    <profile>machine-learning-pipeline</profile>
+                    <propertyVariables>
+                        <targetPipeline>ExampleMachineLearningPipeline</targetPipeline>
+                    </propertyVariables>
+                    <!-- see aissemble-demo-pipelines for base configuration settings -->
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

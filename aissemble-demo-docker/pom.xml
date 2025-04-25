@@ -19,6 +19,8 @@
     <modules>
         <module>aissemble-demo-policy-decision-point-docker</module>
         <module>aissemble-demo-spark-worker-docker</module>
+        <module>aissemble-demo-aissemble-machine-learning-inference-docker</module>
+        <module>aissemble-demo-aissemble-machine-learning-training-docker</module>
     </modules>
 
     <build>
